@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第 3 課：AI 整理術 — 故事叢集、時間線與金句 — AI 長者傳記學堂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1c1a17;--paper:#faf6ef;--paper-dark:#f1eadd;--seal:#b23a2e;--seal-soft:#f7e8e5;--gold:#9a7b3f;--muted:#6f675c;--line:#d8cfbe;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:"LXGW WenKai TC","Noto Serif TC",serif;line-height:1.9;font-size:17px;}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
+  .page{max-width:760px;margin:0 auto;padding:48px 28px 80px;}
+  .kicker{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.35em;color:var(--gold);margin-bottom:18px;}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line);}
+  .seal{width:52px;height:52px;border:2.5px solid var(--seal);border-radius:8px;color:var(--seal);display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-weight:900;font-size:24px;transform:rotate(-4deg);box-shadow:2px 2px 0 var(--seal-soft);margin-bottom:14px;}
+  h1{font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(30px,5.5vw,44px);line-height:1.35;margin-bottom:10px;}
+  .subtitle{font-size:18px;color:var(--muted);margin-bottom:28px;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
+  .meta span{font-size:13px;padding:5px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff;}
+  .meta .hot{border-color:var(--seal);color:var(--seal);background:var(--seal-soft);}
+  .sec{margin-top:52px;}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;}
+  .sec-num{font-family:"Noto Serif TC",serif;font-weight:900;font-size:15px;color:var(--seal);letter-spacing:.1em;white-space:nowrap;}
+  h2{font-family:"Noto Serif TC",serif;font-weight:700;font-size:24px;}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--line);align-self:center;}
+  .lead{color:var(--muted);margin-bottom:20px;}
+  p{margin-bottom:16px;}
+  .example{font-family:"Noto Serif TC",serif;background:var(--paper-dark);border-radius:8px;padding:16px 20px;margin:12px 0;position:relative;}
+  .example::before{content:"例";position:absolute;top:-10px;left:14px;background:var(--gold);color:#fff;font-size:12px;padding:1px 10px;border-radius:99px;}
+  blockquote{border-left:4px solid var(--gold);background:#fffdf8;padding:16px 22px;margin:20px 0;border-radius:0 8px 8px 0;font-size:16px;}
+  .good,.bad{border-radius:8px;padding:14px 18px;margin:10px 0;font-size:15.5px;}
+  .good{background:#eef5ec;border-left:4px solid #4e7a4a;}
+  .bad{background:#f9ecea;border-left:4px solid var(--seal);}
+  .good b{color:#3c6239;} .bad b{color:var(--seal);}
+  /* prompt box */
+  .prompt{background:var(--ink);color:#e8e2d5;border-radius:10px;padding:20px 24px;margin:18px 0;font-size:15px;line-height:1.8;position:relative;}
+  .prompt::before{content:"📋 提示詞模板（複製即用）";position:absolute;top:-11px;left:16px;background:#e8c87a;color:var(--ink);font-size:12px;font-weight:700;padding:2px 12px;border-radius:99px;font-family:"Noto Serif TC",serif;}
+  .prompt .ph{color:#e8c87a;}
+  .prompt-tip{font-size:13.5px;color:var(--muted);margin-top:-8px;margin-bottom:20px;}
+  .quiz-wrap{background:#fff;border:1.5px solid var(--ink);border-radius:12px;padding:26px 26px 22px;margin:26px 0;box-shadow:5px 5px 0 var(--paper-dark);}
+  .quiz-label{display:inline-block;background:var(--ink);color:var(--paper);font-size:13px;letter-spacing:.25em;padding:3px 14px;border-radius:99px;margin-bottom:12px;}
+  .quiz-q{font-family:"Noto Serif TC",serif;font-weight:700;font-size:19px;margin-bottom:18px;}
+  .opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:16px;background:var(--paper);border:1.5px solid var(--line);border-radius:8px;padding:13px 18px;margin:10px 0;cursor:pointer;transition:all .15s;}
+  .opt:hover{border-color:var(--gold);transform:translateX(4px);}
+  .opt.correct{background:#eef5ec;border-color:#4e7a4a;font-weight:700;}
+  .opt.wrong{background:#f9ecea;border-color:var(--seal);}
+  .feedback{display:none;margin-top:14px;padding:14px 18px;border-radius:8px;font-size:15.5px;}
+  .feedback.show{display:block;}
+  .feedback.ok{background:#eef5ec;border:1px solid #b5cdb2;}
+  .feedback.no{background:#f9ecea;border:1px solid #e3b8b3;}
+  .practice{background:var(--ink);color:var(--paper);border-radius:12px;padding:28px 30px;margin:30px 0;}
+  .practice h3{font-family:"Noto Serif TC",serif;font-size:19px;color:#e8c87a;margin-bottom:12px;}
+  .practice ol{margin-left:22px;}
+  .practice li{margin-bottom:10px;}
+  .divider{display:flex;align-items:center;gap:16px;margin:56px 0 30px;color:var(--gold);}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line);}
+  .ask{margin-top:34px;text-align:center;font-size:15px;color:var(--muted);}
+  .ask b{color:var(--seal);}
+  .cite{font-size:13.5px;color:var(--muted);margin-top:40px;border-top:1px dashed var(--line);padding-top:16px;}
+  .cite a{color:var(--gold);}
+</style>
+<link rel="stylesheet" href="../assets/style-a.css">
+</head>
+<body>
+<div class="page">
+  <div class="kicker">AI 長者傳記學堂 · 第三課</div>
+  <div class="seal">整</div>
+  <h1>AI 整理術：<br>故事叢集、時間線與金句庫</h1>
+  <p class="subtitle">90 分鐘的逐字稿是一片混沌。這一課教你用 AI 把它變成「可以寫書的素材」。</p>
+  <div class="meta">
+    <span class="hot">⏱ 25 分鐘</span>
+    <span>🎯 4 個提示詞模板</span>
+    <span>✍️ 互動測驗＋實作</span>
+  </div>
+  <p><strong>這一課為甚麼重要：</strong>專業回憶錄代寫者的共同煩惱：一場 90 分鐘的訪談，逐字稿往往超過一萬字，而且<strong>長者講話會跳來跳去</strong>——講到當兵突然跳回童年，再跳到孫子。人腦整理要花好幾小時，但 AI 幾分鐘就能做完「分類、排序、找重點」這些機械工作，把你的時間留給只有人能做的事：<strong>判斷。</strong></p>
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">心法</span><h2>提示詞三段結構：脈絡＋任務＋禁止</h2></div>
+    <p class="lead">這是本課所有模板的共同骨架，也是你寫任何提示詞的通用公式。</p>
+    <div class="good"><b>① 脈絡（Context）：</b>告訴 AI 它的角色與背景。「你是一位協助整理長者口述歷史的編輯助手。」</div>
+    <div class="good"><b>② 任務（Task）：</b>具體、可執行的指令。「把以下逐字稿中的故事分成叢集，每個叢集給標題。」</div>
+    <div class="good"><b>③ 禁止（Restraint）：</b>劃出紅線。「不要添加逐字稿中沒有的內容；不要潤飾語句。」</div>
+    <p>「禁止」這一段最常被忽略，卻最重要——<strong>沒有紅線的 AI 會為了讓輸出「漂亮」而編造</strong>。回憶錄的素材整理階段，我們要的是忠實的分類，不是漂亮的文采。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">工具一</span><h2>故事叢集：把混亂變成主題</h2></div>
+    <p class="lead">「叢集」（clustering）＝把散落各處的故事按主題歸組。</p>
+    <p>長者講當兵講到一半想起小學老師，十分鐘後又繞回來。叢集就是把「當兵」的兩段、「小學」的三段各自歸位——<strong>這是寫作階段能按章節取材的基礎。</strong></p>
+    <div class="prompt">你是一位協助整理長者口述歷史的編輯助手。<br>以下是一場訪談的逐字稿。請把稿中出現的<strong>每一個故事</strong>獨立出來，按主題分成叢集（例如：童年、求學、工作、婚姻、育兒、遷徙、晚年），並為每個叢集下一個簡短標題。<br>每個故事條目請附上：<br>1. 故事摘要（兩句話以內）<br>2. 在逐字稿中的位置（引用開頭一句話）<br>3. 出現的情感基調（例如：懷念、驕傲、遺憾）<br><strong>禁止：不要添加逐字稿中沒有的內容；不要潤飾或改寫長者的語句；不要合併明顯不同的故事。</strong><br><br>逐字稿：<br>【貼上你的逐字稿】</div>
+    <p class="prompt-tip">💡 逐字稿太長放不進一次對話？按 30 分鐘為單位分段貼上，每次都帶同一份提示詞，最後再請 AI「把這幾批叢集合併、去重」。</p>
+    <blockquote><strong>人類檢查點：</strong>AI 偶爾會把不相干的故事歸成一類，或分出你不認同的分類。<strong>每一批結果都要人工複核</strong>——合併、拆開、改標題，你說了算。AI 給的是草稿分類，不是最終分類。</blockquote>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">工具二</span><h2>時間線：從碎片記憶重建順序</h2></div>
+    <p class="lead">記憶不按時間講，但書要按時間（或主題）排。</p>
+    <div class="prompt">你是一位協助整理長者口述歷史的編輯助手。<br>以下是我的訪談逐字稿。請<strong>抽出所有明確或可推斷的年代、歲數、人生階段</strong>，整理成一條按先後排序的人生時間線。格式：<br>年代（或推斷區間）｜事件｜逐字稿中的依據（引用原句）<br><strong>禁止：不要推測逐字稿未提及的事件；年代無法確定時標注「約」並列出推斷理由。</strong><br><br>逐字稿：<br>【貼上你的逐字稿】</div>
+    <p>長者常說「民國五十幾年」「我退伍那年」這種相對時間——AI 很擅長把這些換算與錨定（「退伍那年」若前後文提到 1968 年，就能定位）。但<strong>換算結果務必回頭跟長者確認</strong>，特別是要印在書裡的關鍵日期。</p>
+  </div>
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">工具三</span><h2>金句庫：傳記的靈魂碎片</h2></div>
+    <p class="lead">「金句」＝最能代表長者聲音與智慧的句子。</p>
+    <div class="prompt">你是一位協助整理長者口述歷史的編輯助手。<br>以下逐字稿將用來寫一本傳記。請挑出其中 <strong>5–10 句「金句」</strong>——最能展現傳主性格、智慧或情感的<strong>完整原句</strong>。<br>每句附上：<br>1. 為甚麼這句有力量（一句話）<br>2. 建議用法（章節開頭引言／段落內引用／封面語）<br><strong>禁止：不要改寫、不要修飾、不要把兩句合併——必須是逐字稿中的原句。</strong><br><br>逐字稿：<br>【貼上你的逐字稿】</div>
+    <p>金句在書裡的用途：章節開頭的引言、傳記封底的推薦語、或孫子輩翻書時第一眼看到的話。<strong>原句不改</strong>是鐵律——金句的力量來自「這真的是阿公說的」。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">工具四</span><h2>找缺口：下一場訪談該問甚麼</h2></div>
+    <p class="lead">AI 看稿子最厲害的地方：看出「哪裡沒講」。</p>
+    <div class="prompt">你是一位協助整理長者口述歷史的編輯助手。<br>以下是已完成的訪談逐字稿與整理好的時間線。請比對一般人生傳記的常見階段，指出<strong>哪些時期或主題明顯缺乏素材</strong>，並為每個缺口設計 1–2 個「打開領域」的問題（參考：說說……、那是甚麼樣的光景？）。<br><strong>禁止：不要假設缺口中發生過甚麼事；問題不得暗示任何預設答案。</strong><br><br>時間線與叢集摘要：<br>【貼上前兩步的產出】</div>
+    <p>這一步直接產出<strong>下一場訪談的問題清單</strong>——於是你的第二場訪談會比第一場更精準。專業代寫者的經驗：第二、三場訪談的品質常常遠高於第一場，因為缺口已經浮現。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">整合</span><h2>四個工具的順序與產出</h2></div>
+    <p class="lead">跑完四步，你手上會有四份文件——這就是寫書的全部素材。</p>
+    <div class="example">逐字稿 → ① 故事叢集（主題分類）→ ② 時間線（先後排序）→ ③ 金句庫（靈魂句子）→ ④ 缺口清單（下場訪談問題）</div>
+    <p>把這四份文件<strong>存在同一個資料夾</strong>（建議：`訪談01/`、`訪談02/`……每場訪談一個子資料夾）。第 4 課寫章節草稿時，你會把它們全部餵給 AI。</p>
+    <blockquote><strong>倫理提醒：</strong>把逐字稿貼給 AI 前，先跟長者確認過資料會用 AI 處理。若內容極度敏感，同一原則適用：用本地部署的模型，或對稿件做去識別化（人名換代稱）。</blockquote>
+  </div>
+
+  <div class="quiz-wrap">
+    <span class="quiz-label">小測驗一</span>
+    <div class="quiz-q">AI 產出的故事叢集中，有一個叢集叫「工作與婚姻奮鬥」，但你讀逐字稿發現裡面的故事其實是兩回事。你應該？</div>
+    <button class="opt" data-r="wrong">信任 AI 的分類，它看得比你全面</button>
+    <button class="opt" data-r="wrong">刪掉整個叢集，避免麻煩</button>
+    <button class="opt" data-r="correct">手動拆成「工作」與「婚姻」兩個叢集——AI 給的是草稿分類，你說了算</button>
+    <button class="opt" data-r="wrong">重新貼一次逐字稿，直到 AI 分對</button>
+    <div class="feedback ok"><strong>正確。</strong>AI 的叢集是「草稿分類」不是「最終分類」。它做的該是機械工作（分類、排序），判斷（合不合適、準不準）永遠是人類的工作。反覆重貼只會浪費時間——拆一個叢集只要十秒。</div>
+    <div class="feedback no"><strong>再想想。</strong>提示：本課的心法是「AI 做機械工作，人做判斷」。分類的對錯，誰比讀過逐字稿的你更有資格判斷？</div>
+  </div>
+
+  <div class="quiz-wrap">
+    <span class="quiz-label">小測驗二</span>
+    <div class="quiz-q">AI 在金句庫裡給了一句你很喜歡的話，但你發現它把長者兩句話剪接合併成了一句。你應該？</div>
+    <button class="opt" data-r="wrong">沒關係，反正意思一樣</button>
+    <button class="opt" data-r="correct">退回重選——金句必須是逐字稿原句，剪接過的句子不能當「阿公說的話」放進書裡</button>
+    <button class="opt" data-r="wrong">把剪接句放進正文，原句放註腳</button>
+    <button class="opt" data-r="wrong">自己動手把原句改得跟 AI 版一樣流暢</button>
+    <div class="feedback ok"><strong>正確。</strong>金句的力量來自「這真的是阿公說的」。剪接句一旦被家人發現「阿公根本沒這樣說」，整本書的信任感就塌了。寫作階段可以潤飾「正文」，但「引號裡的引言」永遠保持原句。</div>
+    <div class="feedback no"><strong>再想想。</strong>提示：這本書的讀者是家人。引言被發現「阿公沒這樣說」會怎樣？</div>
+  </div>
+
+  <div class="practice">
+    <h3>🛠 實作：跑一次完整整理流程</h3>
+    <ol>
+      <li>用第 2 課實作產生的逐字稿（或任何一段 5 分鐘以上的訪談／對話逐字稿）。</li>
+      <li>依序跑四個提示詞模板：叢集 → 時間線 → 金句 → 缺口。</li>
+      <li><strong>人工複核</strong>：拆開或合併至少一個 AI 的叢集分類；挑出一句你認為比 AI 選得更好的金句。</li>
+      <li>把四份產出存進一個資料夾。<strong>第 4 課會用到它們。</strong></li>
+    </ol>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <p>延伸閱讀：<a href="https://www.thewritersforhire.com/can-ai-help-a-ghostwriter-with-messy-interview-transcripts/" target="_blank"><strong>Can AI Help a Ghostwriter Make Sense of Messy Interview Transcripts?</strong></a>（The Writers for Hire，英文）——本課提示詞結構的原始出處，含更多變化用法。</p>
+
+  <p class="ask">提示詞跑不出理想結果？把 AI 的輸出貼給我，<b>我幫你診斷提示詞哪裡出問題</b>——或直接幫你跑整理流程也可以。</p>
+
+  <p class="cite">參考資料：<a href="https://www.thewritersforhire.com/can-ai-help-a-ghostwriter-with-messy-interview-transcripts/" target="_blank">The Writers for Hire：AI 整理訪談逐字稿</a> · <a href="https://rivereditor.com/blogs/how-to-ghostwrite-memoir-from-interviews" target="_blank">River Editor：從逐字稿到回憶錄</a> · <a href="../RESOURCES.md">本課題資源庫</a> ｜ <a href="0002-from-recording-to-transcript.html">← 第 2 課</a></p>
+
+  <script>
+    document.querySelectorAll('.quiz-wrap').forEach(function(q){
+      var opts=q.querySelectorAll('.opt');
+      var fbOk=q.querySelector('.feedback.ok'), fbNo=q.querySelector('.feedback.no');
+      opts.forEach(function(o){
+        o.addEventListener('click',function(){
+          opts.forEach(function(x){x.classList.remove('correct','wrong');});
+          if(o.dataset.r==='correct'){
+            o.classList.add('correct');fbOk.classList.add('show');fbNo.classList.remove('show');
+          }else{
+            o.classList.add('wrong');fbNo.classList.add('show');fbOk.classList.remove('show');
+          }
+        });
+      });
+    });
+  </script>
+</div>
+<script src="../assets/nav.js"></script>
+</body>
+</html>

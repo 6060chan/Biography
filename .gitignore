@@ -1,0 +1,26 @@
+# 編輯器 / 系統
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node / 建置產物（本專案目前純靜態，預留）
+node_modules/
+dist/
+build/
+
+# 暫存與備份
+*.tmp
+*.bak
+*.log
+
+# 個人隱私素材：訪談錄音與逐字稿不進版控
+# （口述歷史涉及長者個資，一律排除）
+audio/
+recordings/
+transcripts-private/
+*.mp3
+*.wav
+*.m4a
+*.mp4

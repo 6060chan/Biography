@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>參考：AI 整理提示詞模板卡 — AI 長者傳記學堂</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1c1a17;--paper:#faf6ef;--paper-dark:#f1eadd;--seal:#b23a2e;--seal-soft:#f7e8e5;--gold:#9a7b3f;--muted:#6f675c;--line:#d8cfbe;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:"LXGW WenKai TC","Noto Serif TC",serif;line-height:1.85;font-size:16px;}
+  .page{max-width:860px;margin:0 auto;padding:44px 28px 70px;}
+  .kicker{font-size:13px;letter-spacing:.3em;color:var(--gold);margin-bottom:14px;}
+  h1{font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(24px,4vw,34px);margin-bottom:8px;}
+  .sub{color:var(--muted);margin-bottom:14px;}
+  .formula{background:var(--ink);color:var(--paper);border-radius:10px;padding:18px 24px;margin-bottom:30px;font-size:15.5px;}
+  .formula b{color:#e8c87a;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:0;margin-bottom:24px;box-shadow:3px 3px 0 var(--paper-dark);overflow:hidden;}
+  .card-head{display:flex;align-items:center;gap:12px;padding:14px 22px;background:var(--paper-dark);border-bottom:1px solid var(--line);}
+  .card-no{flex:none;width:30px;height:30px;border:2px solid var(--seal);border-radius:8px;color:var(--seal);display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-weight:900;transform:rotate(-3deg);font-size:15px;background:#fff;}
+  .card-head h2{font-family:"Noto Serif TC",serif;font-size:18px;}
+  .card-head .use{margin-left:auto;font-size:12.5px;color:var(--muted);white-space:nowrap;}
+  .prompt{padding:18px 22px;background:var(--ink);color:#e8e2d5;font-size:14.5px;line-height:1.8;white-space:pre-wrap;}
+  .prompt .no{color:#f0b8b0;}
+  .checklist{padding:14px 22px 18px;font-size:14.5px;}
+  .checklist b{font-family:"Noto Serif TC",serif;color:var(--seal);}
+  .checklist li{margin-left:20px;margin-bottom:4px;}
+  .cite{font-size:13px;color:var(--muted);margin-top:26px;border-top:1px dashed var(--line);padding-top:14px;}
+  .cite a{color:var(--gold);}
+  @media print{.card{box-shadow:none;page-break-inside:avoid;}}
+</style>
+<link rel="stylesheet" href="../assets/style-a.css">
+</head>
+<body>
+<div class="page">
+  <div class="kicker">AI 長者傳記學堂 · 參考文件 002</div>
+  <h1>AI 整理提示詞模板卡</h1>
+  <p class="sub">四張卡對應整理流程四步驟。列印出來貼在螢幕旁，逐字稿貼上【】處即可用。</p>
+
+  <div class="formula">所有模板共同骨架：<b>脈絡</b>（你是誰）＋<b>任務</b>（做甚麼）＋<b>禁止</b>（不得做甚麼）。<br>禁止段是防幻覺的關鍵——整理階段要忠實，不要文采。</div>
+
+  <div class="card">
+    <div class="card-head"><div class="card-no">1</div><h2>故事叢集</h2><span class="use">每場訪談後跑一次</span></div>
+    <div class="prompt">你是一位協助整理長者口述歷史的編輯助手。
+以下是一場訪談的逐字稿。請把稿中出現的每一個故事獨立出來，按主題分成叢集（例如：童年、求學、工作、婚姻、育兒、遷徙、晚年），並為每個叢集下一個簡短標題。
+每個故事條目請附上：
+1. 故事摘要（兩句話以內）
+2. 在逐字稿中的位置（引用開頭一句話）
+3. 出現的情感基調（例如：懷念、驕傲、遺憾）
+<span class="no">禁止：不要添加逐字稿中沒有的內容；不要潤飾或改寫長者的語句；不要合併明顯不同的故事。</span>
+
+逐字稿：
+【貼上】</div>
+    <div class="checklist"><b>✔ 人類複核：</b><li>拆開／合併不合理的叢集</li><li>改掉你不認同的標題</li></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="card-no">2</div><h2>時間線</h2><span class="use">每場訪談後跑一次</span></div>
+    <div class="prompt">你是一位協助整理長者口述歷史的編輯助手。
+以下是我的訪談逐字稿。請抽出所有明確或可推斷的年代、歲數、人生階段，整理成一條按先後排序的人生時間線。格式：
+年代（或推斷區間）｜事件｜逐字稿中的依據（引用原句）
+<span class="no">禁止：不要推測逐字稿未提及的事件；年代無法確定時標注「約」並列出推斷理由。</span>
+
+逐字稿：
+【貼上】</div>
+    <div class="checklist"><b>✔ 人類複核：</b><li>關鍵日期（婚、遷徙、大事）之後向長者確認</li><li>「民國五十幾年」等模糊說法，書中保留原話</li></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="card-no">3</div><h2>金句庫</h2><span class="use">每場訪談後跑一次</span></div>
+    <div class="prompt">你是一位協助整理長者口述歷史的編輯助手。
+以下逐字稿將用來寫一本傳記。請挑出其中 5–10 句「金句」——最能展現傳主性格、智慧或情感的完整原句。
+每句附上：
+1. 為甚麼這句有力量（一句話）
+2. 建議用法（章節開頭引言／段落內引用／封面語）
+<span class="no">禁止：不要改寫、不要修飾、不要把兩句合併——必須是逐字稿中的原句。</span>
+
+逐字稿：
+【貼上】</div>
+    <div class="checklist"><b>✔ 人類複核：</b><li>逐句對照逐字稿，剔除任何剪接句</li><li>補上 AI 沒選到、但你忘不了的那句</li></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><div class="card-no">4</div><h2>找缺口</h2><span class="use">規劃下一場訪談前跑</span></div>
+    <div class="prompt">你是一位協助整理長者口述歷史的編輯助手。
+以下是已完成的訪談逐字稿與整理好的時間線。請比對一般人生傳記的常見階段，指出哪些時期或主題明顯缺乏素材，並為每個缺口設計 1–2 個「打開領域」的問題（參考：說說……、那是甚麼樣的光景？）。
+<span class="no">禁止：不要假設缺口中發生過甚麼事；問題不得暗示任何預設答案。</span>
+
+時間線與叢集摘要：
+【貼上前兩步的產出】</div>
+    <div class="checklist"><b>✔ 人類複核：</b><li>刪掉長者明顯不想談的主題（尊重隱私）</li><li>合併成下一場的問題清單，套用第 1 課的順序原則</li></div>
+  </div>
+
+  <p class="cite">模板改編自 <a href="https://www.thewritersforhire.com/can-ai-help-a-ghostwriter-with-messy-interview-transcripts/" target="_blank">The Writers for Hire</a> 與 <a href="https://rivereditor.com/blogs/how-to-ghostwrite-memoir-from-interviews" target="_blank">River Editor</a> 的代寫實務。搭配 <a href="001-question-bank.html">參考001 問題銀行</a>使用。</p>
+</div>
+<script src="../assets/nav.js"></script>
+</body>
+</html>

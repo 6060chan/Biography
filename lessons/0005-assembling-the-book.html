@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第 5 課：組稿成書 — AI 長者傳記學堂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1c1a17;--paper:#faf6ef;--paper-dark:#f1eadd;--seal:#b23a2e;--seal-soft:#f7e8e5;--gold:#9a7b3f;--muted:#6f675c;--line:#d8cfbe;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:"LXGW WenKai TC","Noto Serif TC",serif;line-height:1.9;font-size:17px;}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
+  .page{max-width:760px;margin:0 auto;padding:48px 28px 80px;}
+  .kicker{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.35em;color:var(--gold);margin-bottom:18px;}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line);}
+  .seal{width:52px;height:52px;border:2.5px solid var(--seal);border-radius:8px;color:var(--seal);display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-weight:900;font-size:24px;transform:rotate(-4deg);box-shadow:2px 2px 0 var(--seal-soft);margin-bottom:14px;}
+  h1{font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(30px,5.5vw,44px);line-height:1.35;margin-bottom:10px;}
+  .subtitle{font-size:18px;color:var(--muted);margin-bottom:28px;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
+  .meta span{font-size:13px;padding:5px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff;}
+  .meta .hot{border-color:var(--seal);color:var(--seal);background:var(--seal-soft);}
+  .sec{margin-top:52px;}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;}
+  .sec-num{font-family:"Noto Serif TC",serif;font-weight:900;font-size:15px;color:var(--seal);letter-spacing:.1em;white-space:nowrap;}
+  h2{font-family:"Noto Serif TC",serif;font-weight:700;font-size:24px;}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--line);align-self:center;}
+  .lead{color:var(--muted);margin-bottom:20px;}
+  p{margin-bottom:16px;}
+  .example{font-family:"Noto Serif TC",serif;background:var(--paper-dark);border-radius:8px;padding:16px 20px;margin:12px 0;position:relative;}
+  .example::before{content:"例";position:absolute;top:-10px;left:14px;background:var(--gold);color:#fff;font-size:12px;padding:1px 10px;border-radius:99px;}
+  blockquote{border-left:4px solid var(--gold);background:#fffdf8;padding:16px 22px;margin:20px 0;border-radius:0 8px 8px 0;font-size:16px;}
+  .good,.bad{border-radius:8px;padding:14px 18px;margin:10px 0;font-size:15.5px;}
+  .good{background:#eef5ec;border-left:4px solid #4e7a4a;}
+  .bad{background:#f9ecea;border-left:4px solid var(--seal);}
+  .good b{color:#3c6239;} .bad b{color:var(--seal);}
+  .prompt{background:var(--ink);color:#e8e2d5;border-radius:10px;padding:20px 24px;margin:18px 0;font-size:15px;line-height:1.8;position:relative;}
+  .prompt::before{content:"📋 提示詞模板（複製即用）";position:absolute;top:-11px;left:16px;background:#e8c87a;color:var(--ink);font-size:12px;font-weight:700;padding:2px 12px;border-radius:99px;font-family:"Noto Serif TC",serif;}
+  .prompt .no{color:#f0b8b0;}
+  /* book structure diagram */
+  .bookmap{background:#fff;border:1.5px solid var(--ink);border-radius:12px;padding:22px 26px;margin:20px 0;box-shadow:5px 5px 0 var(--paper-dark);}
+  .bookmap .bm-title{font-family:"Noto Serif TC",serif;font-weight:900;text-align:center;font-size:17px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+  .bm-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
+  .bm-tag{flex:none;width:88px;text-align:center;font-size:12.5px;font-family:"Noto Serif TC",serif;padding:3px 0;border-radius:6px;}
+  .bm-tag.t-front{background:var(--seal-soft);color:var(--seal);border:1px solid var(--seal);}
+  .bm-tag.t-body{background:#eef5ec;color:#3c6239;border:1px solid #4e7a4a;}
+  .bm-tag.t-back{background:var(--paper-dark);color:var(--gold);border:1px solid var(--gold);}
+  .bm-desc{font-size:14.5px;color:var(--ink);line-height:1.7;}
+  .bm-desc b{font-family:"Noto Serif TC",serif;}
+  .quiz-wrap{background:#fff;border:1.5px solid var(--ink);border-radius:12px;padding:26px 26px 22px;margin:26px 0;box-shadow:5px 5px 0 var(--paper-dark);}
+  .quiz-label{display:inline-block;background:var(--ink);color:var(--paper);font-size:13px;letter-spacing:.25em;padding:3px 14px;border-radius:99px;margin-bottom:12px;}
+  .quiz-q{font-family:"Noto Serif TC",serif;font-weight:700;font-size:19px;margin-bottom:18px;}
+  .opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:16px;background:var(--paper);border:1.5px solid var(--line);border-radius:8px;padding:13px 18px;margin:10px 0;cursor:pointer;transition:all .15s;}
+  .opt:hover{border-color:var(--gold);transform:translateX(4px);}
+  .opt.correct{background:#eef5ec;border-color:#4e7a4a;font-weight:700;}
+  .opt.wrong{background:#f9ecea;border-color:var(--seal);}
+  .feedback{display:none;margin-top:14px;padding:14px 18px;border-radius:8px;font-size:15.5px;}
+  .feedback.show{display:block;}
+  .feedback.ok{background:#eef5ec;border:1px solid #b5cdb2;}
+  .feedback.no{background:#f9ecea;border:1px solid #e3b8b3;}
+  .practice{background:var(--ink);color:var(--paper);border-radius:12px;padding:28px 30px;margin:30px 0;}
+  .practice h3{font-family:"Noto Serif TC",serif;font-size:19px;color:#e8c87a;margin-bottom:12px;}
+  .practice ol{margin-left:22px;}
+  .practice li{margin-bottom:10px;}
+  .divider{display:flex;align-items:center;gap:16px;margin:56px 0 30px;color:var(--gold);}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line);}
+  .ask{margin-top:34px;text-align:center;font-size:15px;color:var(--muted);}
+  .ask b{color:var(--seal);}
+  .cite{font-size:13.5px;color:var(--muted);margin-top:40px;border-top:1px dashed var(--line);padding-top:16px;}
+  .cite a{color:var(--gold);}
+  .grad{background:linear-gradient(135deg,var(--seal-soft),#fff);border:1.5px solid var(--seal);border-radius:12px;padding:26px 30px;margin:30px 0;text-align:center;}
+  .grad h3{font-family:"Noto Serif TC",serif;font-size:20px;color:var(--seal);margin-bottom:8px;}
+  .grad p{font-size:15.5px;color:var(--muted);margin:0;}
+</style>
+<link rel="stylesheet" href="../assets/style-a.css">
+</head>
+<body>
+<div class="page">
+  <div class="kicker">AI 長者傳記學堂 · 第五課（最終課）</div>
+  <div class="seal">書</div>
+  <h1>組稿成書：<br>從一堆章節到一本能翻的傳記</h1>
+  <p class="subtitle">章節寫完了還不算一本書。這一課把它們組成有骨架、有溫度、能列印的成品。</p>
+  <div class="meta">
+    <span class="hot">⏱ 25 分鐘</span>
+    <span>🎯 完成全書結構與輸出</span>
+    <span>✍️ 互動測驗＋畢業實作</span>
+  </div>
+  <p><strong>這一課為甚麼重要：</strong>五萬字的章節堆在一起，只是「文稿」；有了序言、章節次序、照片、後記與目錄，它才變成「一本書」——家人會拿起來翻、會傳給下一代的那種。這一課也是整個課程的收尾：走完它，你就具備了獨立完成一本長者傳記的全部能力。</p>
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">結構</span><h2>一本家庭傳記的地圖</h2></div>
+    <p class="lead">家庭傳記不是出版社大部頭，而是精巧的小書。標準結構：</p>
+    <div class="bookmap">
+      <div class="bm-title">📜 陳○○的一生 — 全書結構</div>
+      <div class="bm-row"><div class="bm-tag t-front">扉頁</div><div class="bm-desc"><b>書名、傳主姓名、年份</b>。書名用金句或主題提煉（例：「一顆彈珠玩三年」）。</div></div>
+      <div class="bm-row"><div class="bm-tag t-front">序</div><div class="bm-desc"><b>由你（整理者）或家人撰寫</b>：為甚麼做這本書、訪談的緣起。這是唯一「不是傳主口吻」的部分，明確標示作者。</div></div>
+      <div class="bm-row"><div class="bm-tag t-body">正文 4–8 章</div><div class="bm-desc">按<strong>時間序</strong>（童年→求學→工作→成家→晚年）或<strong>主題</strong>（遷徙、手藝、信仰）編排。每章：章頭金句引言 → 場景開頭 → 正文。</div></div>
+      <div class="bm-row"><div class="bm-tag t-body">照片頁</div><div class="bm-desc">穿插各章之間或集中一節。<strong>每張照片一定要有圖說</strong>（人名、年代、地點）——三十年後沒人記得照片裡是誰。</div></div>
+      <div class="bm-row"><div class="bm-tag t-back">後記</div><div class="bm-desc">傳主給子孫的話（訪談最後階段的反思金句，全部放在這裡）。</div></div>
+      <div class="bm-row"><div class="bm-tag t-back">附錄</div><div class="bm-desc">人生時間線（第 3 課的產出）、家族樹簡表、訪談日期清單。</div></div>
+    </div>
+    <p><strong>章節次序怎麼定？</strong>把第 3 課的叢集攤開來，問兩個問題：哪個主題素材最多（它值得獨立成章）？時間線上章與章接不接得起來？一本傳記通常 4–8 章，5 萬字上下的家庭傳記以 6 章最常見。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">工具</span><h2>全書一致性檢查</h2></div>
+    <p class="lead">章節是分次寫的，容易「各章各的口吻」。交給 AI 做整本檢查：</p>
+    <div class="prompt">你是一位協助撰寫長者傳記的編輯助手。<br>以下是這本傳記的<strong>全部章節草稿</strong>與<strong>口吻筆記</strong>。請做全書一致性檢查，回報：<br>1. <strong>口吻偏離</strong>：哪一章哪一段讀起來像「代寫者」而不像傳主？引用具體句子。<br>2. <strong>稱謂不一致</strong>：同一個人在不同章是否被不同方式稱呼（阿母／媽媽／母親）？<br>3. <strong>重複內容</strong>：同一個故事是否出現在兩章？建議保留哪一章。<br>4. <strong>時間線矛盾</strong>：跨章的日期或順序有無衝突。<br><span class="no">禁止：不要改寫任何段落——只回報問題清單，修改由人類決定。</span><br><br>章節草稿：<br>【貼上】<br>口吻筆記：<br>【貼上】</div>
+    <p>拿到問題清單後，逐項回到第 4 課的「具體修正法」處理。<strong>一致性問題不會自己消失</strong>——印出來的書裡，前後稱謂不一樣讀者一眼就會看到。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">輸出</span><h2>三種成品形式</h2></div>
+    <p class="lead">依你的用途選擇，或三種都做：</p>
+    <div class="good"><b>① 家庭列印版（最簡單）：</b>Word/Google Docs 排好 → 一般印表機 A4 雙面列印 → 書店代膠裝或環裝。一本成本約幾十元。</div>
+    <div class="good"><b>② 影印店／線上印刷：</b>把 Word/PDF 交給印刷店，少量印刷裝訂成冊（10–20 本分送家人）。適合有照片、想留久一點的版本。</div>
+    <div class="good"><b>③ 電子書／網頁版：</b>存成 PDF 直接分享家族群組；或做成網頁，孫輩用手機就能看，還能嵌錄音檔。</div>
+    <blockquote><strong>照片小技巧：</strong>老照片用手機翻拍時「白天靠窗、不開閃光燈」效果最好。掃描更佳，至少 300 dpi。翻拍後用 AI 修圖工具做基本增亮即可——<strong>不要過度修復</strong>，刮痕與泛黃本身就是時間的味道。</blockquote>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">倫理</span><h2>出版前最後一關：長者的簽名</h2></div>
+    <p class="lead">整本書是長者的故事，最終決定權在他。</p>
+    <p>全書定稿後，<strong>跟長者一起讀過一遍</strong>——特別是涉及其他家人（糾紛、恩怨）的段落。他有权刪掉任何內容，不需要理由。</p>
+    <div class="example">定稿確認清單：<br>① 長者讀過全書，刪改已處理<br>② 書中提及的仍在世家人，敏感內容已確認<br>③ 照片中人物已確認圖說<br>④ 長者同意印製份數與發送對象</div>
+    <p>專業代寫者的一句話值得記住：「我們是幫他完成心願的服務者。」這本書是他的童話版本、他的說法——</p>
+    <blockquote>「至少對他來說，我們是在陪一位老人寫一個人生的、屬於他的版本。」<span class="who">— 中國回憶錄代寫產業報導，2024</span></blockquote>
+  </div>
+
+  <div class="quiz-wrap">
+    <span class="quiz-label">小測驗一</span>
+    <div class="quiz-q">你的傳記有六章，是六個不同時間、分六次讓 AI 寫的。全書組稿時最不必要做的是？</div>
+    <button class="opt" data-r="wrong">用 AI 跑全書一致性檢查（口吻、稱謂、重複、時間線）</button>
+    <button class="opt" data-r="wrong">跟長者一起讀全書定稿</button>
+    <button class="opt" data-r="correct">逐章重新貼回 AI 要求「再潤飾一次」讓文風更統一</button>
+    <button class="opt" data-r="wrong">為每張照片補上人名年代的圖說</button>
+    <div class="feedback ok"><strong>正確——這正是陷阱所在。</strong>「整本再潤本再潤飾一次」聽起來像一致性方案，實際上是災難：AI 會把各章一起拉向它的樣板文風，把口吻全部抹平。正確做法是「檢查＋定點修正」——找出偏離的地方，用第 4 課的具體修正法改那幾處。</div>
+    <div class="feedback no"><strong>再想想。</strong>提示：有一個選項聽起來很有效率，但會把六個章節一起「洗」成 AI 的預設文風——想想第 4 課學過甚麼。</div>
+  </div>
+
+  <div class="quiz-wrap">
+    <span class="quiz-label">小測驗二</span>
+    <div class="quiz-q">定稿前，長者要求刪掉一段他改變心意不想寫進書裡的婚姻往事。你應該？</div>
+    <button class="opt" data-r="wrong">跟他商量：這段很精采，勸他留下來</button>
+    <button class="opt" data-r="wrong">刪掉書裡的，但在家族群組說明保留原稿存檔</button>
+    <button class="opt" data-r="correct">直接刪——整本書是他的故事，他有權刪任何內容，不需要理由</button>
+    <button class="opt" data-r="wrong">改成化名保留，加註「純屬虛構」</button>
+    <div class="feedback ok"><strong>正確。</strong>整理者是服務者，長者是主人。「勸留」會讓他以後不敢對你誠實；「存檔群組」是背叛；「化名」仍是他的私事被印出來。他說刪，就刪。</div>
+    <div class="feedback no"><strong>再想想。</strong>提示：這本書是「他的」傳記、「他的」說法。誰擁有最終決定權？</div>
+  </div>
+
+  <div class="practice">
+    <h3>🎓 畢業實作：完成你的第一本傳記</h3>
+    <ol>
+      <li>選定一位長者，完成 1–3 場訪談（每場 60–90 分鐘，用第 1 課的問題銀行）。</li>
+      <li>轉錄＋校對（第 2 課）→ 叢集／時間線／金句（第 3 課）。</li>
+      <li>口吻筆記 → 逐章草稿 → 讀出來修正（第 4 課）。</li>
+      <li>組稿：定章節次序、寫序言、排照片與圖說、一致性檢查（本課）。</li>
+      <li>與長者定稿確認 → 選輸出形式 → <strong>印出來，送給他</strong>。</li>
+    </ol>
+    <p style="margin-top:14px;font-size:15px;color:#c9c2b2;">時間預估：從第一次訪談到成書，一個月內可以完成（每週投入 3–5 小時）。</p>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <div class="grad">
+    <h3>🎓 課程完成</h3>
+    <p>訪談 → 轉錄 → 整理 → 寫作 → 成書。五課走完，你已經具備完整的技能鏈。</p>
+    <p style="margin-top:10px;"><strong>最重要的心法只有一句：AI 做機械工作，人做判斷；書是長者的，不是你的。</strong></p>
+  </div>
+
+  <p class="ask">成書路上遇到任何關卡——<b>回來問我</b>。我也樂意幫你批改問題清單、檢查章節草稿的口吻、或一起規劃全書結構。</p>
+
+  <p class="cite">參考資料：<a href="https://rivereditor.com/blogs/how-to-ghostwrite-memoir-from-interviews" target="_blank">River Editor：從逐字稿到成書</a> · <a href="https://www.thewritersforhire.com/can-ai-help-a-ghostwriter-with-messy-interview-transcripts/" target="_blank">The Writers for Hire</a> · 中國回憶錄代寫產業報導（新浪財經，2024）· <a href="../RESOURCES.md">本課題資源庫</a> ｜ <a href="0004-voice-capture-chapter-drafting.html">← 第 4 課</a> ｜ <a href="0000-index.html">課程總覽</a></p>
+
+  <script>
+    document.querySelectorAll('.quiz-wrap').forEach(function(q){
+      var opts=q.querySelectorAll('.opt');
+      var fbOk=q.querySelector('.feedback.ok'), fbNo=q.querySelector('.feedback.no');
+      opts.forEach(function(o){
+        o.addEventListener('click',function(){
+          opts.forEach(function(x){x.classList.remove('correct','wrong');});
+          if(o.dataset.r==='correct'){
+            o.classList.add('correct');fbOk.classList.add('show');fbNo.classList.remove('show');
+          }else{
+            o.classList.add('wrong');fbNo.classList.add('show');fbOk.classList.remove('show');
+          }
+        });
+      });
+    });
+  </script>
+</div>
+<script src="../assets/nav.js"></script>
+</body>
+</html>

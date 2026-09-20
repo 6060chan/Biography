@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第 2 課：從錄音到逐字稿 — AI 長者傳記學堂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1c1a17;--paper:#faf6ef;--paper-dark:#f1eadd;--seal:#b23a2e;--seal-soft:#f7e8e5;--gold:#9a7b3f;--muted:#6f675c;--line:#d8cfbe;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:"LXGW WenKai TC","Noto Serif TC",serif;line-height:1.9;font-size:17px;}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
+  .page{max-width:760px;margin:0 auto;padding:48px 28px 80px;}
+  .kicker{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.35em;color:var(--gold);margin-bottom:18px;}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line);}
+  .seal{width:52px;height:52px;border:2.5px solid var(--seal);border-radius:8px;color:var(--seal);display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-weight:900;font-size:24px;transform:rotate(-4deg);box-shadow:2px 2px 0 var(--seal-soft);margin-bottom:14px;}
+  h1{font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(30px,5.5vw,44px);line-height:1.35;margin-bottom:10px;}
+  .subtitle{font-size:18px;color:var(--muted);margin-bottom:28px;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
+  .meta span{font-size:13px;padding:5px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff;}
+  .meta .hot{border-color:var(--seal);color:var(--seal);background:var(--seal-soft);}
+  .sec{margin-top:52px;}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;}
+  .sec-num{font-family:"Noto Serif TC",serif;font-weight:900;font-size:15px;color:var(--seal);letter-spacing:.1em;white-space:nowrap;}
+  h2{font-family:"Noto Serif TC",serif;font-weight:700;font-size:24px;}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--line);align-self:center;}
+  .lead{color:var(--muted);margin-bottom:20px;}
+  p{margin-bottom:16px;}
+  .example{font-family:"Noto Serif TC",serif;background:var(--paper-dark);border-radius:8px;padding:16px 20px;margin:12px 0;position:relative;}
+  .example::before{content:"例";position:absolute;top:-10px;left:14px;background:var(--gold);color:#fff;font-size:12px;padding:1px 10px;border-radius:99px;}
+  blockquote{border-left:4px solid var(--gold);background:#fffdf8;padding:16px 22px;margin:20px 0;border-radius:0 8px 8px 0;font-size:16px;}
+  .good,.bad{border-radius:8px;padding:14px 18px;margin:10px 0;font-size:15.5px;}
+  .good{background:#eef5ec;border-left:4px solid #4e7a4a;}
+  .bad{background:#f9ecea;border-left:4px solid var(--seal);}
+  .good b{color:#3c6239;} .bad b{color:var(--seal);}
+  .tbl{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;font-size:15px;}
+  .tbl th{font-family:"Noto Serif TC",serif;background:var(--ink);color:var(--paper);padding:10px 12px;text-align:left;font-size:14px;}
+  .tbl td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;}
+  .tbl tr:nth-child(even) td{background:var(--paper);}
+  .tbl .tname{font-weight:700;white-space:nowrap;}
+  .rec{display:inline-block;background:#4e7a4a;color:#fff;font-size:12px;border-radius:99px;padding:1px 10px;margin-left:6px;vertical-align:middle;}
+  .step{display:flex;gap:16px;margin:22px 0;}
+  .step-no{flex:none;width:34px;height:34px;border:2px solid var(--seal);border-radius:50%;color:var(--seal);display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-weight:900;font-size:16px;background:#fff;}
+  .step-body{flex:1;}
+  .step-body h3{font-family:"Noto Serif TC",serif;font-size:18px;margin-bottom:6px;}
+  .step-body p{margin-bottom:8px;}
+  .quiz-wrap{background:#fff;border:1.5px solid var(--ink);border-radius:12px;padding:26px 26px 22px;margin:26px 0;box-shadow:5px 5px 0 var(--paper-dark);}
+  .quiz-label{display:inline-block;background:var(--ink);color:var(--paper);font-size:13px;letter-spacing:.25em;padding:3px 14px;border-radius:99px;margin-bottom:12px;}
+  .quiz-q{font-family:"Noto Serif TC",serif;font-weight:700;font-size:19px;margin-bottom:18px;}
+  .opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:16px;background:var(--paper);border:1.5px solid var(--line);border-radius:8px;padding:13px 18px;margin:10px 0;cursor:pointer;transition:all .15s;}
+  .opt:hover{border-color:var(--gold);transform:translateX(4px);}
+  .opt.correct{background:#eef5ec;border-color:#4e7a4a;font-weight:700;}
+  .opt.wrong{background:#f9ecea;border-color:var(--seal);}
+  .feedback{display:none;margin-top:14px;padding:14px 18px;border-radius:8px;font-size:15.5px;}
+  .feedback.show{display:block;}
+  .feedback.ok{background:#eef5ec;border:1px solid #b5cdb2;}
+  .feedback.no{background:#f9ecea;border:1px solid #e3b8b3;}
+  .practice{background:var(--ink);color:var(--paper);border-radius:12px;padding:28px 30px;margin:30px 0;}
+  .practice h3{font-family:"Noto Serif TC",serif;font-size:19px;color:#e8c87a;margin-bottom:12px;}
+  .practice ol{margin-left:22px;}
+  .practice li{margin-bottom:10px;}
+  .divider{display:flex;align-items:center;gap:16px;margin:56px 0 30px;color:var(--gold);}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line);}
+  .ask{margin-top:34px;text-align:center;font-size:15px;color:var(--muted);}
+  .ask b{color:var(--seal);}
+  .cite{font-size:13.5px;color:var(--muted);margin-top:40px;border-top:1px dashed var(--line);padding-top:16px;}
+  .cite a{color:var(--gold);}
+</style>
+<link rel="stylesheet" href="../assets/style-a.css">
+</head>
+<body>
+<div class="page">
+  <div class="kicker">AI 長者傳記學堂 · 第二課</div>
+  <div class="seal">錄</div>
+  <h1>從錄音到逐字稿：<br>把聲音變成 AI 能讀的素材</h1>
+  <p class="subtitle">逐字稿的品質，決定 AI 整理的品質。這一課學會錄音、轉錄、校對的完整流程。</p>
+  <div class="meta">
+    <span class="hot">⏱ 20 分鐘</span>
+    <span>🎯 完成第一次轉錄</span>
+    <span>✍️ 互動測驗＋實作</span>
+  </div>
+  <p><strong>這一課為甚麼重要：</strong>上一課你學會了訪談。訪談回來，你手裡是一段錄音——但 AI 讀不了聲音。<strong>逐字稿（transcript）是「人類對話」與「AI 加工」之間的橋樑。</strong>這一課走完，你就能把一場 90 分鐘的訪談，變成一份帶時間戳、分好說話人的文字稿。</p>
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">第一步</span><h2>錄音：事前的四個小動作</h2></div>
+    <p class="lead">轉錄準不準，一半在錄音品質。</p>
+    <div class="step"><div class="step-no">1</div><div class="step-body">
+      <h3>開場白錄進檔案裡</h3>
+      <p>訪談一開始，對著錄音機說出日期、地點、雙方姓名。這段會被轉成文字，成為檔案索引。</p>
+      <div class="example">「今天是 2026 年 9 月 19 日，我們在陳伯伯家客廳，訪問陳伯伯，訪問者是他的姪女小美。」</div>
+    </div></div>
+    <div class="step"><div class="step-no">2</div><div class="step-body">
+      <h3>手機放近、關電視</h3>
+      <p>錄音品質的頭號殺手是背景噪音與距離。手機放在兩人中間、距離說話者一臂以內；關掉電視與噪音源。</p>
+    </div></div>
+    <div class="step"><div class="step-no">3</div><div class="step-body">
+      <h3>取得同意（倫理底線）</h3>
+      <p>錄音前明確徵得同意，並說明用途：「這段錄音只用來整理您的傳記，不會給別人聽。」這是口述歷史的第一倫理。</p>
+    </div></div>
+    <div class="step"><div class="step-no">4</div><div class="step-body">
+      <h3>自訂詞庫（如果工具支援）</h3>
+      <p>轉錄工具多半有「自訂詞庫」功能。事先輸入人名、地名、行業術語（如「布袋戲」「三峽老街」），識別率會明顯提升。</p>
+    </div></div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">第二步</span><h2>轉錄：三個工具怎麼選</h2></div>
+    <p class="lead">按「隱私 × 便利」選擇，新手從第一個開始。</p>
+    <table class="tbl">
+      <tr><th>工具</th><th>方式</th><th>優點</th><th>注意</th></tr>
+      <tr>
+        <td class="tname">通義聽悟<span class="rec">推薦</span></td>
+        <td>網頁／App，雲端</td>
+        <td>免安裝、每日有免費額度、<strong>說話人分離</strong>（自動分「訪問者／長者」）、點文字跳原音、可匯出 Word／帶時間戳 TXT</td>
+        <td>需上傳雲端；每日額度有限</td>
+      </tr>
+      <tr>
+        <td class="tname">飛書妙記</td>
+        <td>網頁，雲端</td>
+        <td>文字與音檔逐句對齊，校稿體驗佳，可協作</td>
+        <td>需註冊飛書；同樣上雲</td>
+      </tr>
+      <tr>
+        <td class="tname">Whisper（本地）</td>
+        <td>自己的電腦，離線</td>
+        <td><strong>隱私最高</strong>——錄音完全不出自己的電腦；免費無限次；新手用 Buzz 圖形介面</td>
+        <td>需安裝；處理速度取決電腦</td>
+      </tr>
+    </table>
+    <blockquote><strong>隱私判斷原則：</strong>訪談錄音包含長者的一生私密。若長者明確在意隱私、或內容涉及家庭糾紛，用本地 Whisper；一般家庭紀念性傳記，雲端工具的便利性值得。</blockquote>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">第三步</span><h2>校對：AI 轉完，你的工作才開始</h2></div>
+    <p class="lead">逐字稿 ≠ 可直接用。校對四個重點：</p>
+    <div class="good"><b>① 專有名詞：</b>人名最常出錯（同音字：陳「惠」美／陳「慧」美）。全文搜尋統一改正。</div>
+    <div class="good"><b>② 數字與年代：</b>「民國五十幾年」這種模糊說法保留原樣（之後寫作時再向長者確認），但明確數字要核對。</div>
+    <div class="good"><b>③ 說話人標記：</b>確認「訪問者／長者」沒有互相搞混——特別在你也長篇發言的段落。</div>
+    <div class="good"><b>④ 保留口語，不要「順手潤飾」：</b>校對只改「錯字」，不改「語氣」。長者的口頭禪、倒裝句是之後「口吻保持」的原料，現在改掉就浪費了。</div>
+    <p>校對時善用「點文字跳原音」功能：聽不清楚的那句，點下去重聽，改完再繼續。</p>
+  </div>
+  <div class="quiz-wrap">
+    <span class="quiz-label">小測驗一</span>
+    <div class="quiz-q">轉錄完成後，你發現逐字稿裡長者說話夾雜很多「呃、那個、就是」。校對時應該？</div>
+    <button class="opt" data-r="wrong">全部刪掉，讓文章乾淨好讀</button>
+    <button class="opt" data-r="wrong">刪掉一半，保留一些当口语感</button>
+    <button class="opt" data-r="correct">保留原樣——這些是之後「口吻保持」的重要原料</button>
+    <button class="opt" data-r="wrong">交給 AI 自己決定要不要保留</button>
+    <div class="feedback ok"><strong>正確。</strong>校對階段只改「錯字」，不改「語氣」。口頭禪、贅詞、倒裝句是長者說話的指紋——第 4 課你會學到如何讓 AI 在改寫時「清掉贅詞但保住口吻」，而不是現在手工破壞素材。</div>
+    <div class="feedback no"><strong>再想想。</strong>提示：校對的職責是「對抗機器的錯」，不是「修剪人的話」。口語特徵之後有專門的處理階段。</div>
+  </div>
+
+  <div class="quiz-wrap">
+    <span class="quiz-label">小測驗二</span>
+    <div class="quiz-q">你即將訪談一位長者，內容會觸及家族糾紛與財產問題，長者也表示很在意隱私。最適合的轉錄工具是？</div>
+    <button class="opt" data-r="wrong">通義聽悟——最方便，先用了再說</button>
+    <button class="opt" data-r="correct">Whisper 本地轉錄——錄音完全不出自己的電腦</button>
+    <button class="opt" data-r="wrong">飛書妙記——可以協作，找家人一起校對</button>
+    <button class="opt" data-r="wrong">任何工具都可以，反正之後會刪掉</button>
+    <div class="feedback ok"><strong>正確。</strong>敏感內容＋當事人在意隱私 = 本地離線轉錄。Whisper（配 Buzz 圖形介面）在你自己的電腦上跑，錄音永不上雲。「之後刪掉」不能保證——上傳過的資料你無法真正控制。</div>
+    <div class="feedback no"><strong>再想想。</strong>提示：一旦上傳雲端，資料就不完全在你的控制內了。隱私敏感的素材，原則是「不出自己的電腦」。</div>
+  </div>
+
+  <div class="practice">
+    <h3>🛠 實作：完成你的第一次轉錄</h3>
+    <ol>
+      <li>沒有真實訪談？先拿<strong>任何一段 5 分鐘的中文對話錄音</strong>練手（和家人聊天用手機錄即可，記得先徵得同意）。</li>
+      <li>上傳到通義聽悟（或你選的工具），開啟「說話人分離」。</li>
+      <li>匯出<strong>帶時間戳的 TXT 或 Word</strong>。</li>
+      <li>校對：找出至少 3 個同音字錯誤並改正；確認說話人標記無誤。</li>
+      <li><strong>加分：</strong>記下這次轉錄中「機器聽錯但你不會錯」的詞——那就是下一場訪談前要加進「自訂詞庫」的清單。</li>
+    </ol>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <p>延伸閱讀：<a href="https://adersaytech.com/ai-tutorial/whisper-local-speech-to-text.html" target="_blank"><strong>Whisper 本地語音轉文字完整教學</strong></a>（Ted聊科技，中文）——想走隱私路線時，照著裝 Buzz 圖形介面即可。</p>
+
+  <p class="ask">轉錄卡住了嗎？工具選擇有疑慮？<b>直接在對話中問我</b>——我可以幫你比較工具、解決安裝問題，或幫你設計自訂詞庫。</p>
+
+  <p class="cite">參考資料：<a href="https://storycorps.org/SCC/Conversation-Tips" target="_blank">StoryCorps 訪談技巧</a>（錄音倫理）· <a href="https://adersaytech.com/ai-tutorial/whisper-local-speech-to-text.html" target="_blank">Buzz／Whisper 本地轉錄教學</a> · 通義聽悟／飛書妙記實測報告（2026）· <a href="../RESOURCES.md">本課題資源庫</a> ｜ <a href="0001-oral-history-interview-golden-rules.html">← 第 1 課</a></p>
+
+  <script>
+    document.querySelectorAll('.quiz-wrap').forEach(function(q){
+      var opts=q.querySelectorAll('.opt');
+      var fbOk=q.querySelector('.feedback.ok'), fbNo=q.querySelector('.feedback.no');
+      opts.forEach(function(o){
+        o.addEventListener('click',function(){
+          opts.forEach(function(x){x.classList.remove('correct','wrong');});
+          if(o.dataset.r==='correct'){
+            o.classList.add('correct');fbOk.classList.add('show');fbNo.classList.remove('show');
+          }else{
+            o.classList.add('wrong');fbNo.classList.add('show');fbOk.classList.remove('show');
+          }
+        });
+      });
+    });
+  </script>
+</div>
+<script src="../assets/nav.js"></script>
+</body>
+</html>

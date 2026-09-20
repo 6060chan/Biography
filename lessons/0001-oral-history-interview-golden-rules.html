@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第 1 課：傳記訪談的黃金法則 — AI 長者傳記學堂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1a17;--paper:#faf6ef;--paper-dark:#f1eadd;
+    --seal:#b23a2e;--seal-soft:#f7e8e5;--gold:#9a7b3f;
+    --muted:#6f675c;--line:#d8cfbe;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);
+    font-family:"LXGW WenKai TC","Noto Serif TC",serif;line-height:1.9;font-size:17px;}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
+  .page{max-width:760px;margin:0 auto;padding:48px 28px 80px;}
+  .kicker{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.35em;color:var(--gold);margin-bottom:18px;}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line);}
+  .seal{width:52px;height:52px;border:2.5px solid var(--seal);border-radius:8px;color:var(--seal);
+    display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;
+    font-weight:900;font-size:24px;transform:rotate(-4deg);box-shadow:2px 2px 0 var(--seal-soft);margin-bottom:14px;}
+  h1{font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(30px,5.5vw,44px);line-height:1.35;margin-bottom:10px;}
+  .subtitle{font-size:18px;color:var(--muted);margin-bottom:28px;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
+  .meta span{font-size:13px;padding:5px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff;}
+  .meta .hot{border-color:var(--seal);color:var(--seal);background:var(--seal-soft);}
+  .sec{margin-top:52px;}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;}
+  .sec-num{font-family:"Noto Serif TC",serif;font-weight:900;font-size:15px;color:var(--seal);letter-spacing:.1em;white-space:nowrap;}
+  h2{font-family:"Noto Serif TC",serif;font-weight:700;font-size:24px;}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--line);align-self:center;}
+  .lead{color:var(--muted);margin-bottom:20px;}
+  p{margin-bottom:16px;}
+  .example{font-family:"Noto Serif TC",serif;background:var(--paper-dark);border-radius:8px;padding:16px 20px;margin:12px 0;position:relative;}
+  .example::before{content:"例";position:absolute;top:-10px;left:14px;background:var(--gold);color:#fff;font-size:12px;padding:1px 10px;border-radius:99px;}
+  blockquote{border-left:4px solid var(--gold);background:#fffdf8;padding:16px 22px;margin:20px 0;border-radius:0 8px 8px 0;font-size:16px;}
+  blockquote .who{display:block;margin-top:8px;font-size:13px;color:var(--muted);}
+  .good,.bad{border-radius:8px;padding:14px 18px;margin:10px 0;font-size:15.5px;}
+  .good{background:#eef5ec;border-left:4px solid #4e7a4a;}
+  .bad{background:#f9ecea;border-left:4px solid var(--seal);}
+  .good b{color:#3c6239;} .bad b{color:var(--seal);}
+  .quiz-wrap{background:#fff;border:1.5px solid var(--ink);border-radius:12px;padding:26px 26px 22px;margin:26px 0;box-shadow:5px 5px 0 var(--paper-dark);}
+  .quiz-label{display:inline-block;background:var(--ink);color:var(--paper);font-size:13px;letter-spacing:.25em;padding:3px 14px;border-radius:99px;margin-bottom:12px;}
+  .quiz-q{font-family:"Noto Serif TC",serif;font-weight:700;font-size:19px;margin-bottom:18px;}
+  .opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:16px;background:var(--paper);
+    border:1.5px solid var(--line);border-radius:8px;padding:13px 18px;margin:10px 0;cursor:pointer;transition:all .15s;}
+  .opt:hover{border-color:var(--gold);transform:translateX(4px);}
+  .opt.correct{background:#eef5ec;border-color:#4e7a4a;font-weight:700;}
+  .opt.wrong{background:#f9ecea;border-color:var(--seal);}
+  .feedback{display:none;margin-top:14px;padding:14px 18px;border-radius:8px;font-size:15.5px;}
+  .feedback.show{display:block;}
+  .feedback.ok{background:#eef5ec;border:1px solid #b5cdb2;}
+  .feedback.no{background:#f9ecea;border:1px solid #e3b8b3;}
+  .practice{background:var(--ink);color:var(--paper);border-radius:12px;padding:28px 30px;margin:30px 0;}
+  .practice h3{font-family:"Noto Serif TC",serif;font-size:19px;color:#e8c87a;margin-bottom:12px;}
+  .practice ol{margin-left:22px;}
+  .practice li{margin-bottom:10px;}
+  .divider{display:flex;align-items:center;gap:16px;margin:56px 0 30px;color:var(--gold);}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line);}
+  .ask{margin-top:34px;text-align:center;font-size:15px;color:var(--muted);}
+  .ask b{color:var(--seal);}
+  .cite{font-size:13.5px;color:var(--muted);margin-top:40px;border-top:1px dashed var(--line);padding-top:16px;}
+  .cite a{color:var(--gold);}
+</style>
+<link rel="stylesheet" href="../assets/style-a.css">
+</head>
+<body>
+<div class="page">
+  <div class="kicker">AI 長者傳記學堂 · 第一課</div>
+  <div class="seal">訪</div>
+  <h1>傳記始於一場好的對話：<br>口述歷史訪談的黃金法則</h1>
+  <p class="subtitle">AI 能整理文字，但故事的源頭永遠是那場訪談。訪談品質決定傳記的上限。</p>
+  <div class="meta">
+    <span class="hot">⏱ 15 分鐘</span>
+    <span>🎯 5 條訪談法則</span>
+    <span>✍️ 互動測驗＋實作</span>
+  </div>
+  <p><strong>這一課為甚麼重要：</strong>很多人以為「AI 生成傳記」的難點在寫作。其實不然——AI 擅長整理與改寫，但<strong>沒有好素材，AI 只能編造空洞的內容</strong>（專業上稱為「幻覺」hallucination）。一場準備充分的口述歷史訪談，才是整本傳記的地基。</p>
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">法則一</span><h2>具體先於反思</h2></div>
+    <p class="lead">問題的「順序」與「措辭」同樣重要。</p>
+    <p>「你希望如何被記住？」這種反思性問題，在訪談開場只會得到簡短、防衛性的答案。但同樣的問題，在長者已聊了九十分鐘、講過父母與工作之後，會得到深思熟慮的回答。</p>
+    <div class="example">訪談順序：<br>① 童年與家鄉 → ② 求學與工作 → ③ 家庭與人際 → ④（最後 15 分鐘）遺憾、驕傲、想留下的話</div>
+    <blockquote>「一個能在公車站隨口回答的問題，就會被隨口回答。需要思考的問題，才能創造訪談想捕捉的那個停頓。」<span class="who">— Tapestry 口述歷史實務</span></blockquote>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">法則二</span><h2>打開領域，不問是非</h2></div>
+    <p class="lead">最好的問題「無法簡短回答」。</p>
+    <div class="good"><b>○「說說你小時候住的地方是甚麼樣子？」</b>——打開整片記憶領域，可以講十分鐘。</div>
+    <div class="bad"><b>×「你小時候住得開心嗎？」</b>——一句「開心啊」就結束了。</div>
+    <p>萬能開頭句式：<strong>「說說……」「那是甚麼樣的光景？」「當時……是怎樣的？」</strong></p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">法則三</span><h2>追問細節，穿破「講熟的段子」</h2></div>
+    <p class="lead">每個長者都有幾個講了幾十年的「定稿故事」。</p>
+    <p>定稿故事值得收錄——它是一個家族對自己的敘述。但專業訪談者會在錄下打磨版之後，<strong>往段子內部問細節</strong>，讓長者回到真實記憶：</p>
+    <div class="example">「你當時穿甚麼？」「房間裡還有誰？」「那件事之後隔天發生了甚麼？」</div>
+    <p>這些穿破表層的細節，往往是全書最動人的段落。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">法則四</span><h2>邀請感官細節</h2></div>
+    <p class="lead">細節讓傳記從「履歷」變成「場景」。</p>
+    <div class="example">「你小時候家裡的廚房聞起來是甚麼味道？」「想到阿公，腦中浮現的第一個畫面是甚麼？」</div>
+    <p>這些答案將成為後續 AI 改寫時最有價值的「場景素材」——未來課程你會學到如何用它們寫出開場畫面。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">法則五</span><h2>把收尾權交給受訪者</h2></div>
+    <p class="lead">最後十分鐘，常產出整場訪談最重要的內容。</p>
+    <div class="example">「有沒有我沒問到、但你覺得應該問的？」「還有甚麼想補充的嗎？」</div>
+    <p>這兩個問題把控制權交給長者——此刻他們最放鬆、最熱身完畢，常說出意料之外的珍貴內容。</p>
+  </div>
+  <div class="quiz-wrap">
+    <span class="quiz-label">小測驗一</span>
+    <div class="quiz-q">你正在訪談七十五歲的陳伯伯，他開始講當兵的故事——這個故事你上次家庭聚會已聽他講過三次。最好的做法是？</div>
+    <button class="opt" data-r="wrong">打斷他，換下一個話題，因為大家都聽過了</button>
+    <button class="opt" data-r="wrong">讓他講完，但心裡記下這段不要放進傳記</button>
+    <button class="opt" data-r="correct">讓他完整講完打磨版，然後追問段子內部的細節</button>
+    <button class="opt" data-r="wrong">讓他講完，直接問下一個問題，不深入這個話題</button>
+    <div class="feedback ok"><strong>正確。</strong>定稿故事值得收錄——它是家族敘述的一部分。錄下打磨版後，用細節問題（「你當時穿甚麼？」「誰在場？」）穿破它，才能回到真實記憶。</div>
+    <div class="feedback no"><strong>再想想。</strong>提示：定稿故事不是要避開，而是要「穿過」——先錄下它，再往裡面問細節。</div>
+  </div>
+
+  <div class="quiz-wrap">
+    <span class="quiz-label">小測驗二</span>
+    <div class="quiz-q">以下哪個問題最適合放在訪談的「最後階段」？</div>
+    <button class="opt" data-r="wrong">「你在哪裡出生的？」</button>
+    <button class="opt" data-r="wrong">「你小時候家裡有甚麼傳統？」</button>
+    <button class="opt" data-r="correct">「你希望子孫怎麼記得你？」</button>
+    <button class="opt" data-r="wrong">「你小時候的廚房聞起來是甚麼味道？」</button>
+    <div class="feedback ok"><strong>正確。</strong>評價性、反思性的問題放在最後——長者已完全熱身，才給得出深思熟慮的答案。出生地是暖場題；傳統與感官細節屬於中段的具體題。</div>
+    <div class="feedback no"><strong>再想想。</strong>提示：把「具體的事實題」放前頭，「評價與反思題」放在長者聊開之後。</div>
+  </div>
+
+  <div class="practice">
+    <h3>🛠 實作：設計你的第一份問題清單</h3>
+    <ol>
+      <li>想一位你想訪談的長者（家人或社區長者）。</li>
+      <li>按本課順序寫出 <strong>8 題</strong>：3 題童年具體題、2 題感官細節題、2 題工作家庭題、1 題收尾反思題。</li>
+      <li><strong>加分：</strong>挑一題你能追問細節的，寫下你的追問句。</li>
+    </ol>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <p>讀完本課後，推薦閱讀這篇高信任來源：<a href="https://storycorps.org/SCC/Conversation-Tips" target="_blank"><strong>StoryCorps：10 個訪談技巧</strong></a>（英文，5 分鐘）——本課五法則的原始出處之一，附更多範例問題。</p>
+
+  <p class="ask">有任何不清楚的地方嗎？<b>直接在對話中問我</b>——我是你的老師，隨時可以拆解任何概念、批改你的問題清單，或模擬一場訪談讓你練習。</p>
+
+  <p class="cite">參考資料：<a href="https://storycorps.org/SCC/Conversation-Tips" target="_blank">StoryCorps 訪談技巧</a> · <a href="https://storycorps.org/great-conversations-start-with-great-questions/" target="_blank">StoryCorps 好問題清單</a> · <a href="https://bigballi.com/Tapestry/blog/best-questions-for-a-life-story-interview" target="_blank">Tapestry：人生故事訪談最佳問題</a> · <a href="../RESOURCES.md">本課題資源庫</a></p>
+
+  <script>
+    document.querySelectorAll('.quiz-wrap').forEach(function(q){
+      var opts=q.querySelectorAll('.opt');
+      var fbOk=q.querySelector('.feedback.ok'), fbNo=q.querySelector('.feedback.no');
+      opts.forEach(function(o){
+        o.addEventListener('click',function(){
+          opts.forEach(function(x){x.classList.remove('correct','wrong');});
+          if(o.dataset.r==='correct'){
+            o.classList.add('correct');fbOk.classList.add('show');fbNo.classList.remove('show');
+          }else{
+            o.classList.add('wrong');fbNo.classList.add('show');fbOk.classList.remove('show');
+          }
+        });
+      });
+    });
+  </script>
+</div>
+<script src="../assets/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第 4 課：口吻保持 — 寫出「像他自己寫的」章節 — AI 長者傳記學堂</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1c1a17;--paper:#faf6ef;--paper-dark:#f1eadd;--seal:#b23a2e;--seal-soft:#f7e8e5;--gold:#9a7b3f;--muted:#6f675c;--line:#d8cfbe;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:"LXGW WenKai TC","Noto Serif TC",serif;line-height:1.9;font-size:17px;}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:999;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
+  .page{max-width:760px;margin:0 auto;padding:48px 28px 80px;}
+  .kicker{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.35em;color:var(--gold);margin-bottom:18px;}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line);}
+  .seal{width:52px;height:52px;border:2.5px solid var(--seal);border-radius:8px;color:var(--seal);display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-weight:900;font-size:24px;transform:rotate(-4deg);box-shadow:2px 2px 0 var(--seal-soft);margin-bottom:14px;}
+  h1{font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(30px,5.5vw,44px);line-height:1.35;margin-bottom:10px;}
+  .subtitle{font-size:18px;color:var(--muted);margin-bottom:28px;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
+  .meta span{font-size:13px;padding:5px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff;}
+  .meta .hot{border-color:var(--seal);color:var(--seal);background:var(--seal-soft);}
+  .sec{margin-top:52px;}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;}
+  .sec-num{font-family:"Noto Serif TC",serif;font-weight:900;font-size:15px;color:var(--seal);letter-spacing:.1em;white-space:nowrap;}
+  h2{font-family:"Noto Serif TC",serif;font-weight:700;font-size:24px;}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--line);align-self:center;}
+  .lead{color:var(--muted);margin-bottom:20px;}
+  p{margin-bottom:16px;}
+  .example{font-family:"Noto Serif TC",serif;background:var(--paper-dark);border-radius:8px;padding:16px 20px;margin:12px 0;position:relative;}
+  .example::before{content:"例";position:absolute;top:-10px;left:14px;background:var(--gold);color:#fff;font-size:12px;padding:1px 10px;border-radius:99px;}
+  blockquote{border-left:4px solid var(--gold);background:#fffdf8;padding:16px 22px;margin:20px 0;border-radius:0 8px 8px 0;font-size:16px;}
+  .good,.bad{border-radius:8px;padding:14px 18px;margin:10px 0;font-size:15.5px;}
+  .good{background:#eef5ec;border-left:4px solid #4e7a4a;}
+  .bad{background:#f9ecea;border-left:4px solid var(--seal);}
+  .good b{color:#3c6239;} .bad b{color:var(--seal);}
+  .prompt{background:var(--ink);color:#e8e2d5;border-radius:10px;padding:20px 24px;margin:18px 0;font-size:15px;line-height:1.8;position:relative;}
+  .prompt::before{content:"📋 提示詞模板（複製即用）";position:absolute;top:-11px;left:16px;background:#e8c87a;color:var(--ink);font-size:12px;font-weight:700;padding:2px 12px;border-radius:99px;font-family:"Noto Serif TC",serif;}
+  .prompt .no{color:#f0b8b0;}
+  /* before/after demo */
+  .demo{display:grid;grid-template-columns:1fr;gap:0;margin:18px 0;border-radius:10px;overflow:hidden;border:1px solid var(--line);}
+  .demo-label{padding:8px 16px;font-size:13px;font-family:"Noto Serif TC",serif;font-weight:700;}
+  .demo-label.l1{background:#f9ecea;color:var(--seal);}
+  .demo-label.l2{background:#eef5ec;color:#3c6239;}
+  .demo-text{padding:16px 20px;background:#fff;font-size:15.5px;line-height:1.9;border-top:1px solid var(--line);}
+  .quiz-wrap{background:#fff;border:1.5px solid var(--ink);border-radius:12px;padding:26px 26px 22px;margin:26px 0;box-shadow:5px 5px 0 var(--paper-dark);}
+  .quiz-label{display:inline-block;background:var(--ink);color:var(--paper);font-size:13px;letter-spacing:.25em;padding:3px 14px;border-radius:99px;margin-bottom:12px;}
+  .quiz-q{font-family:"Noto Serif TC",serif;font-weight:700;font-size:19px;margin-bottom:18px;}
+  .opt{display:block;width:100%;text-align:left;font-family:inherit;font-size:16px;background:var(--paper);border:1.5px solid var(--line);border-radius:8px;padding:13px 18px;margin:10px 0;cursor:pointer;transition:all .15s;}
+  .opt:hover{border-color:var(--gold);transform:translateX(4px);}
+  .opt.correct{background:#eef5ec;border-color:#4e7a4a;font-weight:700;}
+  .opt.wrong{background:#f9ecea;border-color:var(--seal);}
+  .feedback{display:none;margin-top:14px;padding:14px 18px;border-radius:8px;font-size:15.5px;}
+  .feedback.show{display:block;}
+  .feedback.ok{background:#eef5ec;border:1px solid #b5cdb2;}
+  .feedback.no{background:#f9ecea;border:1px solid #e3b8b3;}
+  .practice{background:var(--ink);color:var(--paper);border-radius:12px;padding:28px 30px;margin:30px 0;}
+  .practice h3{font-family:"Noto Serif TC",serif;font-size:19px;color:#e8c87a;margin-bottom:12px;}
+  .practice ol{margin-left:22px;}
+  .practice li{margin-bottom:10px;}
+  .divider{display:flex;align-items:center;gap:16px;margin:56px 0 30px;color:var(--gold);}
+  .divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line);}
+  .ask{margin-top:34px;text-align:center;font-size:15px;color:var(--muted);}
+  .ask b{color:var(--seal);}
+  .cite{font-size:13.5px;color:var(--muted);margin-top:40px;border-top:1px dashed var(--line);padding-top:16px;}
+  .cite a{color:var(--gold);}
+</style>
+<link rel="stylesheet" href="../assets/style-a.css">
+</head>
+<body>
+<div class="page">
+  <div class="kicker">AI 長者傳記學堂 · 第四課</div>
+  <div class="seal">聲</div>
+  <h1>口吻保持：<br>寫出「像他自己寫的」章節</h1>
+  <p class="subtitle">整本傳記最難的一步——也是 AI 最容易搞砸的一步。學會馴服它。</p>
+  <div class="meta">
+    <span class="hot">⏱ 25 分鐘</span>
+    <span>🎯 產出第一個章節草稿</span>
+    <span>✍️ 互動測驗＋實作</span>
+  </div>
+  <p><strong>這一課為甚麼重要：</strong>代寫回憶錄的第一條鐵律——<strong>完稿要像傳主自己寫的，不像代寫者寫的</strong>。AI 的預設文風是「流暢、華麗、面面俱到」的樣板文，直接讓它「寫一章」就會得到一本「甚麼都對、但誰都不像」的傳記。口吻（voice）必須像指紋一樣被刻意保存。</p>
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">概念</span><h2>甚麼是「口吻」？拆成四個零件</h2></div>
+    <p class="lead">口吻不是玄學。專業代寫者把它拆成可操作的元件：</p>
+    <div class="good"><b>① 句子節奏：</b>長句還是短句？一句到底還是常見停頓轉折？</div>
+    <div class="good"><b>② 詞彙層級：</b>用「很好」還是「真有意思」？講「賺錢」還是「討生活」？</div>
+    <div class="good"><b>③ 招牌口頭禪：</b>「說起來」「你都不知道」「那時候啊」——少量點綴，立刻像他。</div>
+    <div class="good"><b>④ 情感表達方式：</b>直接說「我很難過」，還是繞著說「那陣子比較沒有心情」？</div>
+    <p>這四個零件全部來自你的<strong>逐字稿</strong>——這就是第 2 課「保留口語」的原因。逐字稿是口吻的指紋資料庫。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">第一步</span><h2>先做「口吻筆記」再動筆</h2></div>
+    <p class="lead">寫章節草稿前，先讓 AI 幫你分析長者的說話方式。</p>
+    <div class="prompt">你是一位協助撰寫長者傳記的編輯助手。<br>以下是傳主的訪談逐字稿。請分析他的<strong>說話方式</strong>，產出一份「口吻筆記」：<br>1. 句子長度與節奏（引用 3 個例子）<br>2. 常用詞彙與避免的詞（引用例子）<br>3. 招牌口頭禪或轉折語（列出出現頻率最高的 3–5 個）<br>4. 情感表達模式（直接／含蓄／幽默自嘲？引用例子）<br>5. 三句「最有他味道」的句子<br><span class="no">禁止：不要評論內容本身，只分析語言風格。</span><br><br>逐字稿：<br>【貼上】</div>
+    <p>這份口吻筆記會在下一步「餵」進章節寫作提示詞——AI 需要被告知「寫成甚麼樣」，而不是自己猜。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">第二步</span><h2>章節草稿提示詞：五段式結構</h2></div>
+    <p class="lead">這是本課的主角——把逐字稿素材變成書的一章。</p>
+    <div class="prompt">你是一位資深回憶錄代寫作家。請把以下素材寫成傳記的一個章節草稿。<br><br><strong>【傳主】</strong>陳○○，75 歲， retired 教師<br><strong>【本章主題】</strong>童年與家鄉（1950 年代，嘉義鄉下）<br><strong>【素材】</strong>以下逐字稿段落（本章相關的叢集）：<br>【貼上該主題的逐字稿段落】<br><strong>【口吻筆記】</strong>【貼上第一步的口吻筆記】<br><strong>【本章金句】</strong>【貼上金句庫中屬於本章的句子】<br><br>寫作要求：<br>1. 以第一人稱（「我」）撰寫，像傳主自己在回憶<br>2. 用<strong>場景開頭</strong>——從一個具體的畫面、聲音或氣味開始，不要「我出生於……」<br>3. 場景與反思交替：具體的時刻 → 它的意義 → 再回到具體<br>4. 清除贅詞（呃、那個），但<strong>保留口吻筆記中的招牌說話方式</strong>，適量點綴<br>5. 對話用引號，只能用逐字稿中真實出現過的說法，不得虛構對白<br>6. 章末以一句金句或一個留白畫面收尾<br><span class="no">禁止：不得添加逐字稿中沒有的事件、人物或細節；不得使用成語堆砌或華麗修辭；字數 800–1200。</span><br><br>寫完後，另起一段列出：<br>【事實查核清單】需要向傳主確認的日期／人名／地點<br>【缺口】本章素材不足、需要補訪談的部分</div>
+    <p>注意提示詞最後要求 AI <strong>自己回報「事實查核清單」與「缺口」</strong>——這是專業代寫流程的內建步驟，讓查核不用靠你從頭比對。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">第三步</span><h2>讀出來測試：最有效的口吻檢驗</h2></div>
+    <p class="lead">Mollyverse 工作坊的方法：草稿完成後，<strong>大聲讀出來</strong>。</p>
+    <p>讀的時候問一個問題：<strong>「這像我爺爺會說的話嗎？」</strong></p>
+    <div class="demo">
+      <div class="demo-label l1">✗ AI 樣板味（口吻失敗）</div>
+      <div class="demo-text">「童年的時光如白駒過隙，轉眼間便消逝在歲月的長河中。那片承載著我無數回憶的土地，始終縈繞在我的心頭，揮之不去。」</div>
+      <div class="demo-label l2">✓ 有口吻（口吻成功）</div>
+      <div class="demo-text">「說起來，我们那時候哪有甚麼玩具。田裡撿到的甚麼都能玩，一顆彈珠玩三年。你現在問我小時候最快樂是甚麼時候——我跟你講，就是收割完的那個下午，整個村子的小孩全部放出來。」</div>
+    </div>
+    <p>兩段寫的是同一件事。第二段有「說起來」「我跟你講」的口頭禪、短句節奏、具體的彈珠與收割午後——<strong>這些全部來自逐字稿</strong>。AI 做得到，但只有在你明確餵給它口吻筆記與素材時。</p>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-num">第四步</span><h2>修正循環：具體指出，不要「改好一點」</h2></div>
+    <p class="lead">草稿不滿意時，修正提示詞要具體。</p>
+    <div class="bad"><b>×「太生硬了，改自然一點」</b>——AI 不知道「自然」是甚麼，會亂改一通。</div>
+    <div class="good"><b>○「三件事：1. 把第二段的『然而』換成他常用的『話說回來』；2. 『母親』改成他都說的『我阿母』；3. 刪掉『歲月的洗禮』這種詞，他不用這種話。」</b></div>
+    <p>每輪修正引用<strong>具體的位置＋具體的改法</strong>，最好附上逐字稿中的原話當依據。通常一到兩輪就能到位。</p>
+  </div>
+  <div class="quiz-wrap">
+    <span class="quiz-label">小測驗一</span>
+    <div class="quiz-q">AI 寫出的章節草稿流暢優美，但你讀出來覺得「一點都不像阿公」。最可能的原因是？</div>
+    <button class="opt" data-r="wrong">AI 能力不足，換更強的模型</button>
+    <button class="opt" data-r="correct">提示詞沒餵「口吻筆記」，AI 只能用自己的預設文風寫</button>
+    <button class="opt" data-r="wrong">素材太少，應該先寫別章</button>
+    <button class="opt" data-r="wrong">正常現象，口吻本來就做不到</button>
+    <div class="feedback ok"><strong>正確。</strong>AI 的預設文風就是那種「流暢優美」的樣板文。它不知道阿公怎麼說話，除非你把逐字稿分析出的口吻筆記（節奏、詞彙、口頭禪、情感模式）明確餵給它。「不像」幾乎永遠是提示詞缺了口吻資訊，不是模型不夠強。</div>
+    <div class="feedback no"><strong>再想想。</strong>提示：AI 寫的是「它自己以為的回憶錄文風」，除非你告訴它「這個人怎麼說話」。</div>
+  </div>
+
+  <div class="quiz-wrap">
+    <span class="quiz-label">小測驗二</span>
+    <div class="quiz-q">草稿中 AI 寫了一句漂亮的話：「阿母的雙手，歲月在其上鐫刻了深深的痕跡。」但阿公從不這樣說話。你該怎麼修正？</div>
+    <button class="opt" data-r="wrong">留下來，這句真的寫得很好</button>
+    <button class="opt" data-r="wrong">整段刪掉重寫</button>
+    <button class="opt" data-r="correct">引用具體位置與改法：「刪掉『歲月鐫刻痕跡』這類修辭，改成他在逐字稿裡的說法：『我阿母的手粗得像菜瓜布，洗衣服洗的』」</button>
+    <button class="opt" data-r="wrong">叫 AI「全部改白話一點」</button>
+    <div class="feedback ok"><strong>正確。</strong>具體位置＋具體改法＋逐字稿原話依據——三要素俱全的修正提示詞。AI 會立刻明白你要的口吻標準。順帶一提，那句逐字稿裡的真話，往往比 AI 的修辭動人十倍。</div>
+    <div class="feedback no"><strong>再想想。</strong>提示：修正要「具體指出＋具體改法」，而且你手上有最好的依據——逐字稿裡阿公自己的話。</div>
+  </div>
+
+  <div class="practice">
+    <h3>🛠 實作：產出你的第一個章節草稿</h3>
+    <ol>
+      <li>用第 3 課實作產出的「叢集＋金句」素材。</li>
+      <li>先跑「口吻筆記」提示詞（第一步），檢查它抓到的口頭禪對不對。</li>
+      <li>再跑「章節草稿」提示詞（第二步），選一個素材最多的叢集寫成一章。</li>
+      <li><strong>讀出來測試</strong>：大聲讀一遍，標記三處「不像他」的地方。</li>
+      <li>用「具體修正」提示詞改一輪。</li>
+      <li><strong>加分：</strong>把草稿讀給長者本人聽——這是終極測試，也是他參與自己傳記的珍貴時刻。</li>
+    </ol>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <p>延伸閱讀：<a href="https://rivereditor.com/blogs/how-to-ghostwrite-memoir-from-interviews" target="_blank"><strong>How to Ghostwrite a Memoir from Interview Transcripts</strong></a>（River Editor，英文）——本課口吻四零件與場景／反思結構的原始出處。</p>
+
+  <p class="ask">草稿讀起來怪怪的？把草稿跟逐字稿片段一起貼給我，<b>我幫你診斷口吻哪裡跑掉了</b>——也可以直接幫你改寫一版當對照組。</p>
+
+  <p class="cite">參考資料：<a href="https://rivereditor.com/blogs/how-to-ghostwrite-memoir-from-interviews" target="_blank">River Editor：口吻保持</a> · <a href="https://molly-verse.com?p=2553/" target="_blank">Mollyverse：讀出來測試法</a> · <a href="https://aiopenlibrary.com/prompts/memoir-interview-to-chapter-converter" target="_blank">AIOpenLibrary：章節轉換模板</a> · <a href="../RESOURCES.md">本課題資源庫</a> ｜ <a href="0003-ai-organizing-clusters-timeline.html">← 第 3 課</a></p>
+
+  <script>
+    document.querySelectorAll('.quiz-wrap').forEach(function(q){
+      var opts=q.querySelectorAll('.opt');
+      var fbOk=q.querySelector('.feedback.ok'), fbNo=q.querySelector('.feedback.no');
+      opts.forEach(function(o){
+        o.addEventListener('click',function(){
+          opts.forEach(function(x){x.classList.remove('correct','wrong');});
+          if(o.dataset.r==='correct'){
+            o.classList.add('correct');fbOk.classList.add('show');fbNo.classList.remove('show');
+          }else{
+            o.classList.add('wrong');fbNo.classList.add('show');fbOk.classList.remove('show');
+          }
+        });
+      });
+    });
+  </script>
+</div>
+<script src="../assets/nav.js"></script>
+</body>
+</html>

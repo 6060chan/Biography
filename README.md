@@ -67,6 +67,7 @@ git clone https://github.com/6060chan/Biography.git
 ```
 .
 ├── README.md
+├── PRD.md              產品需求文件（目標、功能需求、設計系統、路線圖）
 ├── MISSION.md          學習使命（teach skill 工作區文件）
 ├── RESOURCES.md        7 個驗證過的高品質資源來源
 ├── NOTES.md            教學偏好筆記

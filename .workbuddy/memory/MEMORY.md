@@ -16,6 +16,7 @@
 - `reference/`：001 問題銀行、002 提示詞模板卡（皆可列印帶去實作）
 - `assets/style-a.css`：全站共用樣式，風格為「舊書信·家族檔案」（牛皮紙底 #F5EDDC、硃砂印 #A0392A）
 - `assets/nav.js`：全站頂部導航，動態生成，自動高亮當前頁
+- `PRD.md`：產品需求文件 v0.1（2026-09-26 建立；Goals、FR 優先級與完成狀態、設計系統、里程碑）
 - `MISSION.md` / `RESOURCES.md` / `NOTES.md`：teach skill 的教學工作區文件
 
 ## 設計與技術慣例
@@ -32,5 +33,7 @@
 ## 環境怪癖
 
 - 本機 Bash 的 coreutils 缺損（`ls`、`head`、`dirname` 皆無），git 子指令可正常跑，避免管接到這些指令。
+- `git -C /d/github/biography <cmd>` 在此環境會因 `dirname` 缺失而解析失敗（fatal: cannot change to '/d/github/biography'）。
+  改用工作目錄既有的 cwd 直接跑 `git <cmd>`（不加 `-C`）。
 - git 寫入 `.git/refs/remotes/**` 會靜默失敗 → push 後 `git status -sb` 顯示 `[gone]`。
   解法：用 Write 工具直接寫 `.git/refs/remotes/origin/main`，內容為該次 HEAD 的 SHA + 換行。
